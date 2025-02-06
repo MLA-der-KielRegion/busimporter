@@ -21,4 +21,8 @@ version: 1.0.1
 # incremented each time you make changes to the application. Versions are not expected to
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
+<<<<<<< HEAD
 appVersion: "1.1.18"
+=======
+appVersion: "1.0.5"
+>>>>>>> 312b6125a5f62e3cbdbe21ebe965f8b6fd9b2584

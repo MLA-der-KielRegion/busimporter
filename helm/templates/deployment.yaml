@@ -42,6 +42,17 @@ spec:
                 name: {{ .Chart.Name }}-secrets
             - configMapRef:
                 name: {{ .Chart.Name }}-config
+<<<<<<< HEAD
+=======
+#          livenessProbe:
+#            httpGet:
+#              path: /
+#              port: http
+#          readinessProbe:
+#            httpGet:
+#              path: /
+#              port: http
+>>>>>>> 312b6125a5f62e3cbdbe21ebe965f8b6fd9b2584
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           {{- with .Values.volumeMounts }}
