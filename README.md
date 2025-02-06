@@ -4,6 +4,22 @@
 
 Ein Script um die Daten aus den Thingsboard zu holen und an ContextBroker auszuliefern. Alternativ kann man die Daten auch en einen Node-RED Endpunkt senden ( **SEND_TO_CONTEXTBROKER = false** ), es muss dann dort eine Verarbeitung der Rohdaten hinterlegt werden.
 
+
+## Voraussetzungen
+
+* Kubernetes 1.23+
+* Helm 3.8.0+
+
+### Helm Install 
+
+## Installation
+
+TBD
+
+## Parameter
+Die wichtigen Parameter werden im values.yaml konfiguriert.
+
+
 ## Funktionalität
 
 - aufbauen einer wss Connection zum Thingsboard
@@ -53,6 +69,7 @@ Ein Script um die Daten aus den Thingsboard zu holen und an ContextBroker auszul
 **debug**: Dies ist der niedrigste Log-Level und wird für ausführliche Debugging-Nachrichten verwendet, die normalerweise nur im Entwicklungsmodus oder bei der Fehlerbehebung aktiviert werden.
 
 **silly**: Dieser Log-Level ist noch niedriger als "debug" und wird für äußerst detaillierte oder exzessive Debugging-Informationen verwendet, die normalerweise nicht in der Produktion verwendet werden.
+
 
 ## License
 
