@@ -9,14 +9,46 @@ Optional können die Daten auch an einen Node-Red Endpunkt gesendet werden ( **S
 * Kubernetes 1.23+
 * Helm 3.8.0+
 
-### Helm Install 
-
 ## Installation
 
-TBD
+```bash
+$ cd busimporter
+$ helm install <my-release> helm --values <values file> -n <namespace>
+```
+
+alternativ:
+
+```bash
+$ helm upgrade --install <my-release> helm --values <values file> -n <namespace>
+```
+
+Beispiel:
+
+```bash
+$ helm upgrade --install my-release helm -n my-namespace --create-namespace --values <values file>
+```
 
 ## Parameter
 Die wichtigen Parameter werden im values.yaml konfiguriert.
+
+| Name                    | Description                                     | Value  |
+|:------------------------|:------------------------------------------------|:-------|
+| env.loglevel            | loglevel of the service                         | info   |
+| env.tbApiUrl            | Thingsboard API URL                             |        |
+| env.tbWssUrl            | Thingsboard WSS URL                             |        |
+| env.tbUser              | username of the Thingsboard user                |        |
+| env.tbPassword          | password of the Thingsboard user                |        |
+| env.nodeRedEndpoint     | Node-red endpoint URL                           |        |
+| env.entityType          | Thingsboard entity type                         |        |
+| env.entityId            | ID from the Thingsboard entity type             |        |
+| env.subscriptionId      | URL for the authentication service              |        |
+| env.authServerUrl       | URL for the authentication server               |        |
+| env.clientId            | client ID of the token service                  |        |
+| env.clientSecret        | Secret for the client ID                        |        |
+| env.contextBrokerUrl    | context broker API                              |        |
+| env.ngsiLdApi           | NGSI-LD API prefix                              | /ngsi-ld/v1 |
+| env.ngsiLdTenant        | Tenant to use                                   |        |
+| env.vehicleBlockSize    | block size per packet sent to the context broker API | 20 |
 
 
 ## Funktionalität
@@ -69,6 +101,11 @@ Die wichtigen Parameter werden im values.yaml konfiguriert.
 
 **silly**: Dieser Log-Level ist noch niedriger als "debug" und wird für äußerst detaillierte oder exzessive Debugging-Informationen verwendet, die normalerweise nicht in der Produktion verwendet werden.
 
+## Upgrading the chart
+
+```bash
+$ helm upgrade <my-release> helm --values <values file> -n <namespace>
+```
 
 ## License
 

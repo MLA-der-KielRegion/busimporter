@@ -10,7 +10,7 @@ global:
 replicaCount: 1
 
 image:
-  registry: hub.captn.addix.io
+  registry: hub.addix.net
   repository: smartcity/busimporter
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
