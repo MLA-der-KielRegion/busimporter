@@ -1,0 +1,118 @@
+# Default values for busimporter.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+global:
+  imageRegistry: ""
+  imagePullSecrets: []
+  storageClass: ""
+
+replicaCount: 1
+
+image:
+  registry: hub.captn.addix.io
+  repository: smartcity/busimporter
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Automatically mount a ServiceAccount's API credentials?
+  automount: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+podLabels: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+# Additional volumes on the output Deployment definition.
+volumes: []
+# - name: foo
+#   secret:
+#     secretName: mysecret
+#     optional: false
+
+# Additional volumeMounts on the output Deployment definition.
+volumeMounts: []
+# - name: foo
+#   mountPath: "/etc/foo"
+#   readOnly: true
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+env:
+# loglevel is the loglevel of the service
+  loglevel: "info"
+# tbApiUrl is the Thingsboard API URL
+  tbApiUrl: ""
+# tbWssUrl is the Thingsboard WSS URL
+  tbWssUrl: ""
+# tbUser is the username of the Thingsboard user
+  tbUser: ""
+# tbPassword is the password of the Thingsboard user
+  tbPassword: ""
+# nodeRedEndpoint is the Noderred Endpoint URL
+  nodeRedEndpoint: ""
+# entityType is the Thingsboard entity type
+  entityType: ""
+# entityId is the ID from the Thingsboard entity type
+  entityId: ""
+# subscriptionId
+  subscriptionId: ""
+# authServerUrl is the URL for the authentication server
+  authServerUrl: ""
+# clientId is the client ID of the token service
+  clientId: ""
+# clientSecret is the Secret for the client ID
+  clientSecret: ""
+# contextBrokerUrl is the context broker API
+  contextBrokerUrl: ""
+# ngsildApi is the NGSI-LD API prefix
+  ngsiLdApi: "/ngsi-ld/v1"
+# ngsildTenant is the Tenant to use
+  ngsiLdTenant: ""
+# vehicleBlockSize is the block size per packet sent to the context broker API
+  vehicleBlockSize: "20"  

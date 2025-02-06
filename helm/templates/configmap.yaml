@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Chart.Name }}-config
+  labels:
+    {{- include "busimporter.labels" . | nindent 4 }}
+data:
+  LOGLEVEL: {{ default "info" .Values.env.loglevel | quote }}
+  THINGSBOARD_API_URL: {{ default "none" .Values.env.tbApiUrl | quote }}
+  THINGSBOARD_WSS_URL: {{ default "none" .Values.env.tbWssUrl | quote }}
+  NODE_RED_ENDPOINT: {{ default "none" .Values.env.nodeRedEndpoint | quote }}
+  ENTITY_TYPE: {{ default "ASSET" .Values.env.entityType | quote }}
+  ENTITY_ID: {{ .Values.env.entityId | quote }}
+  AUTHSERVERURL: {{ default "none" .Values.env.authServerUrl | quote }}
+  CONTEXTBROKER: {{ default "none" .Values.env.contextBrokerUrl | quote }}
+  NGSILDAPI: {{ default "/ngsi-ld/v1" .Values.env.ngsiLdApi | quote }}
+  NGSILDTENANT: {{ default "none" .Values.env.ngsiLdTenant | quote }}
+  VEHICLE_BLOCK_SIZE: {{ default "20" .Values.env.vehicleBlockSize | int | quote }}

@@ -1,8 +1,7 @@
-# busimporter
-
-## Busdaten vom Thingsboard holen
-
-Ein Script um die Daten aus den Thingsboard zu holen und an ContextBroker auszuliefern. Alternativ kann man die Daten auch en einen Node-RED Endpunkt senden ( **SEND_TO_CONTEXTBROKER = false** ), es muss dann dort eine Verarbeitung der Rohdaten hinterlegt werden.
+# BusImporter
+Der Busimporter importiert Echtzeitdaten von Bussen. Dazu gehören unter anderem die aktuelle Position, die Linie und die Auslastung.
+Die originalen Daten liegen in einem Thingsboard und werden durch den BusImporter direkt in Echtzeit in den ContextBroker übertragen.
+Optional können die Daten auch an einen Node-Red Endpunkt gesendet werden ( **SEND_TO_CONTEXTBROKER = false** ). Im Node-Red muss dann eine Verarbeitung der Rohdaten hinterlegt werden.
 
 ## Funktionalität
 
